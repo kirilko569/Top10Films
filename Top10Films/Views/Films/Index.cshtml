@@ -1,0 +1,34 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h1 >TOP 10 Films</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    @foreach (var movie in ViewBag.FilmsModel)
+    {
+        <div class="movie">
+            <img src="@movie.PosterURL" alt="Movie Poster">
+            <div >
+                <h3>@movie.Name</h3>
+                <p>
+                    Продюсер: @movie.Director<br />
+                    Жанр: @movie.Genre<br />
+                    Рік випуску: @movie.Year
+                </p>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@movie.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@movie.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@movie.Id">Delete</a>
+                </td>
+                <p>@movie.Description</p>
+            </div>
+        </div>
+    }
+</body>
+</html>
